@@ -1,4 +1,8 @@
-from fsradio.base import core, pin, exec
+import sys
+
+from fsradio.base import core
+from fsradio.fsapi import pin, exec
+from fsradio.scanner import all, ware, cmd
 
 class MainShell(core.Shell):
     def __init__(self, prompt: str) -> None:
@@ -7,7 +11,7 @@ class MainShell(core.Shell):
         self.modules = self.create_modules()
 
     def create_modules(self) -> list:
-        return [exec.ExecModule(), pin.PinModule()]
+        return [exec.ExecModule(), pin.PinModule(), all.ResolveModule(), cmd.CommandResolverModule(), ware.FirmwareModule()]
 
     def run(self):
         while 1:
@@ -24,17 +28,20 @@ class MainShell(core.Shell):
                 if new_m:
                     self.module = new_m
                     self.module_name = new_m.get_name()
+                    print()
                 else:
-                    print("[*] Unkown module!\n")
+                    print(" Unkown module!\n")
             elif a[0] == "quit":
                 quit()
             elif a[0] == "modules":
                 self.print_modules()
-
+            else:
+                print()
         else:
             if input.split(" ")[0] == "back":
                 self.module = None
                 self.module_name = None
+                print()
             else:
                 self.get_module().react(input)
                 
@@ -46,15 +53,20 @@ class MainShell(core.Shell):
         return None
 
     def print_modules(self):
-        print("\n[*] Printing all loaded modules")
+        print("\n [*] Printing all loaded modules")
+
         for module in self.modules:
             if module:
-                print(module.get_name())
+                print(" " + module.get_name())
+        print()
 
-    
+print("┌───────────────────────────────────────┐")
+print("│ Abusing the FSAPI by Frontier-Silicon │")
+print("└───────────────────────────────────────┘\n")
 
-print(" _________________________________________")
-print("| Abusing the FSAPI from Frontier-Silicon |")
-print(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n")
-shell = MainShell("fsradio")
+prompt = "fsradio"
+if len(sys.argv) >= 2:
+    prompt = str(sys.argv[1])
+
+shell = MainShell(prompt=prompt)
 shell.run()
