@@ -25,7 +25,7 @@ class ExecModule(BaseModule):
                         [["OPTION", "REQUIRED", "VALUE"],
                         ["RHOST", "yes", self.get_option(self.RHOST)],
                         ["COMMAND", "yes", self.get_option(self.COMMAND)],
-                        ["PIN", "no", self.get_option(self.PIN)]
+                        ["PIN", "no", self.get_option(self.PIN)],
                         ["PARAM", "no", self.get_option(self.PARAM)]])
 
     def check(self, c):

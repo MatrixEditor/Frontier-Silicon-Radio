@@ -47,13 +47,4 @@ Wählt man nun ein Modul aus, wird dies im Konsolen-Prompt mit angegeben. Jetzt 
     * /scanner/web_scanner : kombiniert /fsapi/resolve_pin mit /fsapi/command_execution und /scanner/firmware_downloader
 
 ## TODO
-------------
-1. Iperf-Command injection
-2. FSH-1 filesystem structure of binary (firmware)
-
-
-
-
-
- 
-    
+1. FSH-1 filesystem structure of binary (firmware)
