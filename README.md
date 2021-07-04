@@ -1,7 +1,8 @@
 # MEDION MD87805
 
+[English](https://github.com/MatrixEditor/Frontier-Silicon-Radio/blob/main/doc/eng.md) version.
+
 ## Web-FsAPI
------------
 
 Diese API ist in vielen IoT-Geräten von Frontier-Silicon (auch Frontier-Smart) integriert und bietet die Möglichkeit, ohne eine Authentifizierung (okay, man braucht eine PIN) System-Calls über den Web-Browser auszuführen.
 
@@ -14,12 +15,10 @@ und:
 
  
  ## fsapi-Dokumentation
- ----------
 [Hier](https://github.com/flammy/fsapi/blob/master/FSAPI.md) gibt es eine generelle API-Dokumentation zur fsapi.
 
 
 ## Main-Datei
--------------
 Um das System zu starten, in der Konsole py, python3 oder python mit dem entsprechenden Datei-Namen angeben und _Enter_ drücken.
 
 Danach können nur noch die Befehle _use_, _quit_ und _modules_ benutzt werden:
@@ -36,7 +35,6 @@ Wählt man nun ein Modul aus, wird dies im Konsolen-Prompt mit angegeben. Jetzt 
     * back : geht in das Startmenü zurück.
 
 ## Module
------------
 
     * /fsapi/resolve_pin : Verucht die PIN eines Gerätes herauszufinden (Syntax: run -i <IP> [-d Optional für Debug-Mode]). Bei diesem Modul funktioniert nur diese Syntax und der 'back'-Befehl (aktuell)
     
