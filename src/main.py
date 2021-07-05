@@ -2,7 +2,8 @@ import sys
 
 from fsradio.base import core
 from fsradio.fsapi import pin, exec
-from fsradio.scanner import all, ware, cmd
+from fsradio.scanner import web, ware, cmd
+from fsradio.binary import fshbin
 
 class MainShell(core.Shell):
     def __init__(self, prompt: str) -> None:
@@ -11,7 +12,9 @@ class MainShell(core.Shell):
         self.modules = self.create_modules()
 
     def create_modules(self) -> list:
-        return [exec.ExecModule(), pin.PinModule(), all.ResolveModule(), cmd.CommandResolverModule(), ware.FirmwareModule()]
+        return [exec.ExecModule(), pin.PinModule(), web.ResolveModule(), 
+                cmd.CommandResolverModule(), ware.FirmwareModule(),
+                fshbin.FSBinaryModule()]
 
     def run(self):
         while 1:
@@ -64,9 +67,9 @@ print("┌───────────────────────�
 print("│ Abusing the FSAPI by Frontier-Silicon │")
 print("└───────────────────────────────────────┘\n")
 
-prompt = "fsradio"
+p = "fsradio"
 if len(sys.argv) >= 2:
-    prompt = str(sys.argv[1])
+    p = str(sys.argv[1])
 
-shell = MainShell(prompt=prompt)
+shell = MainShell(p)
 shell.run()

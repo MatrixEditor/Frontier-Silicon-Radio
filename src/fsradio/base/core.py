@@ -84,7 +84,7 @@ class Shell(Runnable):
 
     def get_prompt(self):
         if self.module_name == None:
-            return f" ┌─(root@{self.PROMPT})─[~]\n └───$ "
+            return f" ┌─(root@{self.PROMPT})─[~]\n └───$ " # fancy styled prompt 
         else:
             return f" ┌─(root@{self.PROMPT}#{self.module_name})─[~]\n └───$ "
 

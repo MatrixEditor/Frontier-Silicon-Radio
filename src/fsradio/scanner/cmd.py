@@ -62,6 +62,10 @@ class CommandResolverModule(BaseModule):
                 URL_t = f"http://{rhost}/fsapi/{operation}/{op}?pin={pin}"
 
                 page = core.fetch_url(URL_t)
+                if page == None:
+                    print_f(f"/fsapi/{operation}/{op}", f"404 - Maybe false Host?", length)
+                    continue
+
                 data = parse(page.text)
 
                 if data != None:
@@ -87,7 +91,7 @@ class CommandResolverModule(BaseModule):
                         else:
                             print_f(f"/fsapi/{operation}/{op}", f"404 ({val})", length)
                 else:
-                    print_f(f"/fsapi/{operation}/{op}", f"404 - {operation} could be false operation", length)
+                    print_f(f"/fsapi/{operation}/{op}", f"404 - Host maybe down?", length)
             print(" └──" + "─"*length + "┘")
             print("\n")
 
