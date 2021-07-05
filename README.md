@@ -46,5 +46,7 @@ Wählt man nun ein Modul aus, wird dies im Konsolen-Prompt mit angegeben. Jetzt 
 
     * /scanner/web_scanner : kombiniert /fsapi/resolve_pin mit /fsapi/command_execution und /scanner/firmware_downloader
 
+    * /scanner/command_scanner : Sucht auf dem Gerät nach existierenden Befehlen, die ausgeführt werden können
+
 ## TODO
 1. FSH-1 filesystem structure of binary (firmware)
